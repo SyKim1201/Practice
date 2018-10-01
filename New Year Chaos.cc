@@ -5,6 +5,7 @@ using namespace std;
 vector<string> split_string(string);
 
 
+
 // Complete the minimumBribes function below.
 void minimumBribes(vector<int> q) {
     vector<int> temp;
