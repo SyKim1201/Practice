@@ -4,21 +4,23 @@ using namespace std;
 
 vector<string> split_string(string);
 
-// Complete the arrayManipulation function below.
 long arrayManipulation(int n, vector<vector<int>> queries) {
     vector<long> arr(n, 0);
-    long max = 0;
+    long sum = 0;
+    long out = 0;
     for (auto q: queries) {
-        for (int i = q[0] - 1; i < q[1]; i++) {
-            arr[i] += q[2];
+        arr[q[0] - 1] += q[2];
+        if (q[1] != n) {
+            arr[q[1]] -= q[2];
         }
     }
     for (auto i: arr) {
-        if (i > max) {
-            max = i;
+        sum += i;
+        if (sum > out) {
+            out = sum;
         }
     }
-    return max;
+    return out;
 }
 
 int main()
